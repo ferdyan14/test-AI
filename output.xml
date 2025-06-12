@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.10.17 on linux)" generated="2025-06-12T07:43:23.874361" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/app/tests">
+<suite id="s1-s1" name="Admin Page Tests" source="/app/tests/admin_page_tests.robot">
+<test id="s1-s1-t1" name="Navigate To Admin Page And Validate" line="21">
+<kw name="Open Browser And Maximize For Test" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:24.188838" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url_to_open}</arg>
+<arg>${browser_to_use}</arg>
+<arg>options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-12T07:43:24.188374" elapsed="2.139664"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-12T07:43:26.328548" elapsed="0.031006"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:26.359914" elapsed="0.257029"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-06-12T07:43:24.187166" elapsed="2.430030"/>
+</kw>
+<kw name="Attempt Login With Credentials" owner="common_keywords">
+<kw name="Input Login Credentials" owner="common_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:26.620570" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:26.620117" elapsed="0.298106"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:26.919211" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg time="2025-06-12T07:43:26.990753" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:26.918677" elapsed="0.167932"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-06-12T07:43:26.618474" elapsed="0.468368"/>
+</kw>
+<kw name="Click Login Button" owner="common_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:27.088104" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<arg>xpath://button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:27.087742" elapsed="0.167902"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:27.087163" elapsed="0.168712"/>
+</kw>
+<kw name="Verify Successful Login" owner="common_keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:27.256777" elapsed="1.089330"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:27.256205" elapsed="1.090165"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<status status="PASS" start="2025-06-12T07:43:26.617685" elapsed="1.728790"/>
+</kw>
+<kw name="Navigate To Admin Page">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-12T07:43:30.348157" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-12T07:43:28.347546" elapsed="2.000828"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADMIN_MENU_ITEM_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:30.348692" elapsed="0.028075"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:30.377678" level="INFO">Clicking element 'xpath=//ul[contains(@class,'oxd-main-menu')]//a[.//span[text()='Admin']]'.</msg>
+<arg>${ADMIN_MENU_ITEM_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:30.377215" elapsed="0.509505"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${USER_MANAGEMENT_HEADER_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:30.887102" elapsed="0.245193"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:28.347019" elapsed="2.785499"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:31.140424" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.132760" elapsed="0.007743"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${ADMIN_PAGE_URL}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.140832" elapsed="0.000486"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:31.150922" level="INFO">${page_title} = OrangeHRM</msg>
+<var>${page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.141535" elapsed="0.009467"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${page_title}</arg>
+<arg>${ADMIN_PAGE_TITLE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.151395" elapsed="0.000434"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.152190" elapsed="0.073128"/>
+</kw>
+<doc>Logs in, navigates to Admin page, and validates URL and title.</doc>
+<tag>Admin</tag>
+<tag>Navigation</tag>
+<tag>Positive</tag>
+<status status="PASS" start="2025-06-12T07:43:24.185657" elapsed="7.039852"/>
+</test>
+<status status="PASS" start="2025-06-12T07:43:23.909861" elapsed="7.316468"/>
+</suite>
+<suite id="s1-s2" name="Login Tests" source="/app/tests/login_tests.robot">
+<test id="s1-s2-t1" name="Valid Login Test" line="15">
+<kw name="Open Browser And Maximize For Test" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:31.232806" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url_to_open}</arg>
+<arg>${browser_to_use}</arg>
+<arg>options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-12T07:43:31.232400" elapsed="1.814933"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.047785" elapsed="0.021750"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.069867" elapsed="0.251050"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-06-12T07:43:31.231786" elapsed="2.089346"/>
+</kw>
+<kw name="Ensure Login Page Is Ready" owner="common_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:33.333048" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.322124" elapsed="0.011005"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${current_url}" != "${LOGIN_URL}"</arg>
+<arg>Go To</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.333606" elapsed="0.000450"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.334284" elapsed="0.021302"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:33.321545" elapsed="0.034258"/>
+</kw>
+<kw name="Attempt Login With Credentials" owner="common_keywords">
+<kw name="Input Login Credentials" owner="common_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:33.358198" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.357816" elapsed="0.263098"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:33.621765" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg time="2025-06-12T07:43:33.682111" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.621253" elapsed="0.146805"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-06-12T07:43:33.357069" elapsed="0.411188"/>
+</kw>
+<kw name="Click Login Button" owner="common_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:33.769395" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<arg>xpath://button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:33.769061" elapsed="0.856322"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:33.768591" elapsed="0.856995"/>
+</kw>
+<kw name="Verify Successful Login" owner="common_keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:34.626655" elapsed="0.278721"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:34.625950" elapsed="0.279661"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<status status="PASS" start="2025-06-12T07:43:33.356133" elapsed="1.549652"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-12T07:43:34.906234" elapsed="0.070994"/>
+</kw>
+<doc>Test login with valid credentials and verify dashboard access.</doc>
+<tag>Login</tag>
+<tag>Positive</tag>
+<tag>Smoke</tag>
+<status status="PASS" start="2025-06-12T07:43:31.231132" elapsed="3.746294"/>
+</test>
+<test id="s1-s2-t2" name="Invalid Login Test" line="22">
+<kw name="Open Browser And Maximize For Test" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:34.980037" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url_to_open}</arg>
+<arg>${browser_to_use}</arg>
+<arg>options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-12T07:43:34.979533" elapsed="9.297689"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.277631" elapsed="0.021843"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.299789" elapsed="0.271755"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-06-12T07:43:34.978825" elapsed="9.592930"/>
+</kw>
+<kw name="Ensure Login Page Is Ready" owner="common_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:44.587212" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.572652" elapsed="0.014654"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${current_url}" != "${LOGIN_URL}"</arg>
+<arg>Go To</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.587849" elapsed="0.000464"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.588547" elapsed="0.013936"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:44.572114" elapsed="0.030656"/>
+</kw>
+<kw name="Input Login Credentials" owner="common_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:44.604193" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.603805" elapsed="0.261797"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:44.866430" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg time="2025-06-12T07:43:44.929346" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:44.865938" elapsed="0.158051"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${INVALID_PASS}</arg>
+<status status="PASS" start="2025-06-12T07:43:44.603088" elapsed="0.421103"/>
+</kw>
+<kw name="Click Login Button" owner="common_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:45.025407" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<arg>xpath://button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:45.025025" elapsed="0.152761"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:45.024572" elapsed="0.153432"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOGIN_ERROR_MESSAGE_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:45.178303" elapsed="0.957392"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:46.185836" level="INFO">${error_text} = Invalid credentials</msg>
+<var>${error_text}</var>
+<arg>${LOGIN_ERROR_MESSAGE_XPATH}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:46.136160" elapsed="0.049762"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${error_text}</arg>
+<arg>${EXPECTED_LOGIN_ERROR_TEXT}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T07:43:46.186215" elapsed="0.000667"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-12T07:43:46.187347" elapsed="0.080949"/>
+</kw>
+<doc>Test login with invalid credentials and verify error message.</doc>
+<tag>Login</tag>
+<tag>Negative</tag>
+<status status="PASS" start="2025-06-12T07:43:34.977980" elapsed="11.290571"/>
+</test>
+<test id="s1-s2-t3" name="Dashboard Page Validation After Login" line="32">
+<kw name="Open Browser And Maximize For Test" owner="common_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:46.271032" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url_to_open}</arg>
+<arg>${browser_to_use}</arg>
+<arg>options=add_argument("--headless");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-12T07:43:46.270581" elapsed="2.894888"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.165818" elapsed="0.023803"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.190019" elapsed="0.248150"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-06-12T07:43:46.269897" elapsed="3.168482"/>
+</kw>
+<kw name="Ensure Login Page Is Ready" owner="common_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:49.452427" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.439341" elapsed="0.013170"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${current_url}" != "${LOGIN_URL}"</arg>
+<arg>Go To</arg>
+<arg>${LOGIN_URL}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.452807" elapsed="0.000562"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.453612" elapsed="0.011665"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:49.438816" elapsed="0.026698"/>
+</kw>
+<kw name="Attempt Login With Credentials" owner="common_keywords">
+<kw name="Input Login Credentials" owner="common_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:49.468191" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.467572" elapsed="0.241912"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:49.710421" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg time="2025-06-12T07:43:49.765915" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.709864" elapsed="0.142730"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-06-12T07:43:49.467028" elapsed="0.385755"/>
+</kw>
+<kw name="Click Login Button" owner="common_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:49.854122" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<arg>xpath://button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-12T07:43:49.853753" elapsed="0.157975"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:49.853218" elapsed="0.158723"/>
+</kw>
+<kw name="Verify Successful Login" owner="common_keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${DASHBOARD_HEADER_XPATH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:50.012754" elapsed="0.988944"/>
+</kw>
+<status status="PASS" start="2025-06-12T07:43:50.012294" elapsed="0.989612"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<status status="PASS" start="2025-06-12T07:43:49.465835" elapsed="1.536153"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:51.011407" level="INFO">${current_url} = https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-06-12T07:43:51.002298" elapsed="0.009199"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${DASHBOARD_URL}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T07:43:51.011801" elapsed="0.000484"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-06-12T07:43:51.020378" level="INFO">${page_title} = OrangeHRM</msg>
+<var>${page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-06-12T07:43:51.012518" elapsed="0.007938"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${page_title}</arg>
+<arg>${DASHBOARD_TITLE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T07:43:51.020717" elapsed="0.000386"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-12T07:43:51.021483" elapsed="0.072944"/>
+</kw>
+<doc>Validate dashboard URL and title after a successful login.</doc>
+<tag>Dashboard</tag>
+<tag>Positive</tag>
+<status status="PASS" start="2025-06-12T07:43:46.269038" elapsed="4.825633"/>
+</test>
+<status status="PASS" start="2025-06-12T07:43:31.227074" elapsed="19.868230"/>
+</suite>
+<status status="PASS" start="2025-06-12T07:43:23.876072" elapsed="27.219971"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Admin</stat>
+<stat pass="1" fail="0" skip="0">Dashboard</stat>
+<stat pass="2" fail="0" skip="0">Login</stat>
+<stat pass="1" fail="0" skip="0">Navigation</stat>
+<stat pass="1" fail="0" skip="0">Negative</stat>
+<stat pass="3" fail="0" skip="0">Positive</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="4" fail="0" skip="0">Tests</stat>
+<stat name="Admin Page Tests" id="s1-s1" pass="1" fail="0" skip="0">Tests.Admin Page Tests</stat>
+<stat name="Login Tests" id="s1-s2" pass="3" fail="0" skip="0">Tests.Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
